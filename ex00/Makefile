@@ -1,6 +1,6 @@
 NAME		=	templates
 
-SRC			=	
+SRC			=	main.cpp
 
 CC			=	c++
 
