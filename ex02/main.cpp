@@ -1,6 +1,6 @@
 #include "Array.hpp"
 
-int main(void) // try with different data types
+int main(void)
 {
     //Construction with no parameter
     Array<int> arr;
