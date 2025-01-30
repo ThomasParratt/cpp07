@@ -53,7 +53,7 @@ class Array
 	        return (*this);
         }
 
-        T& operator[](unsigned int index)
+        T& operator[](unsigned int index) const
         {
             if (index >= _size)
                 throw IndexOutofBoundsException();
@@ -76,10 +76,9 @@ class Array
 };
 
 template<typename T>
-std::ostream&   operator<<(std::ostream& os, Array<T>& obj)
+std::ostream&   operator<<(std::ostream& os, const Array<T>& obj)
 {
     for (unsigned int i = 0; i < obj.size(); i++)
         os << obj[i] << " ";
-    os << std::endl;
     return (os);
 }
