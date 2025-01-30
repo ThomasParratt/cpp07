@@ -53,16 +53,16 @@ class Array
 	        return (*this);
         }
 
-        unsigned int size() const
-        {
-            return (_size);
-        }
-
-        T   getElement(unsigned int index) const
+        T& operator[](unsigned int index) const
         {
             if (index >= _size)
                 throw IndexOutofBoundsException();
             return (_arr[index]);
+        }
+
+        unsigned int size() const
+        {
+            return (_size);
         }
 
         class IndexOutofBoundsException : public std::exception

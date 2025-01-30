@@ -14,7 +14,7 @@ int main(void)
 
     try
     {
-        std::cout << array1.getElement(10) << std::endl;
+        std::cout << array1[1] << std::endl;
     }
     catch (std::exception & e)
     {
@@ -23,7 +23,7 @@ int main(void)
 
     try
     {
-        std::cout << copy.getElement(10) << std::endl;
+        std::cout << copy[1] << std::endl;
     }
     catch (std::exception & e)
     {
