@@ -20,7 +20,7 @@ class Array
             _arr = new T[n];
         }
 
-        Array(const Array& obj)
+        Array(const Array& obj) // SHOULD COPIES BE DEEP OR SHALLOW?
         {
             std::cout << "Copy constructor called" << std::endl;
             _arr = obj._arr;
