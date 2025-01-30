@@ -8,6 +8,10 @@ int main(void)
 
     Array<int> copy(array1);
 
+    Array<int> copy1;
+
+    copy1 = array1;
+
     try
     {
         std::cout << array1.getElement(10) << std::endl;
