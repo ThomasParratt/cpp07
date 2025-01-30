@@ -10,23 +10,26 @@ class Array
     public:
         Array()
         {
+            std::cout << "Defaut contructor called" << std::endl;
             //does this initialize an empty array?
         }
 
         Array(unsigned int n) : _size(n)
         {
+            std::cout << "Constructor called" << std::endl;
             _arr = new T[n];
+        }
+
+        Array(const Array& obj)
+        {
+            std::cout << "Copy constructor called" << std::endl;
+            _arr = obj._arr;
         }
 
         ~Array()
         {
             delete[] _arr;
         }
-
-        // Array(const Array& obj)
-        // {
-        //     _arr = obj._arr;
-        // }
 
         // Array& operator=(const Array& obj)
         // {

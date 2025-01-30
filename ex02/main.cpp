@@ -6,9 +6,11 @@ int main(void)
 
     Array<int> *array1 = new Array<int>(5);
 
+    Array<int> *copy = new Array<int>(*array1);
+
     try
     {
-        std::cout << array->getElement(0) << std::endl;
+        std::cout << array1->getElement(10) << std::endl;
     }
     catch (std::exception & e)
     {
@@ -17,7 +19,7 @@ int main(void)
 
     try
     {
-        std::cout << array1->getElement(1) << std::endl;
+        std::cout << copy->getElement(10) << std::endl;
     }
     catch (std::exception & e)
     {
