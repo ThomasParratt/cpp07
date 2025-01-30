@@ -11,19 +11,23 @@ class Array
         Array()
         {
             std::cout << "Defaut contructor called" << std::endl;
-            //does this initialize an empty array?
+            _size = 0;
+            _arr = new T[_size];
         }
 
-        Array(unsigned int n) : _size(n)
+        Array(unsigned int n)
         {
             std::cout << "Constructor called" << std::endl;
-            _arr = new T[n];
+            _size = n;
+            _arr = new T[_size];
+            for (unsigned int i = 0; i < n; i++)
+                _arr[i] = T();
         }
 
-        Array(const Array& obj) // SHOULD COPIES BE DEEP OR SHALLOW?
+        Array(const Array& obj)
         {
             std::cout << "Copy constructor called" << std::endl;
-            _arr = obj._arr;
+            *this = obj;
         }
 
         ~Array()
@@ -31,12 +35,20 @@ class Array
             delete[] _arr;
         }
 
-        // Array& operator=(const Array& obj)
-        // {
-        //     if (this != &obj)
-        //         _arr = obj._arr;
-        //     return (*this);
-        // }
+        Array& operator=(const Array& obj)
+        {
+            std::cout << "Copy assignment operator called" << std::endl;
+            if (this != &obj)
+		    {
+                _size = obj._size;
+                if (_arr != nullptr)
+                    delete[] _arr;
+                _arr = new T[_size];
+                for (unsigned int i = 0; i < _size; i++)
+                    _arr[i] = obj._arr[i];
+            }
+	        return (*this);
+        }
 
         unsigned int size() const
         {
@@ -46,11 +58,11 @@ class Array
         T   getElement(unsigned int index) const
         {
             if (index >= _size)
-                throw IndexOutofBounds();
+                throw IndexOutofBoundsException();
             return (_arr[index]);
         }
 
-        class IndexOutofBounds : public std::exception
+        class IndexOutofBoundsException : public std::exception
         {
             public:
                 const char* what() const noexcept override

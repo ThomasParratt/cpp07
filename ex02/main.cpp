@@ -2,15 +2,15 @@
 
 int main(void)
 {
-    Array<int> *array = new Array<int>();
+    Array<int> array;
 
-    Array<int> *array1 = new Array<int>(5);
+    Array<int> array1(5);
 
-    Array<int> *copy = new Array<int>(*array1);
+    Array<int> copy(array1);
 
     try
     {
-        std::cout << array1->getElement(10) << std::endl;
+        std::cout << array1.getElement(10) << std::endl;
     }
     catch (std::exception & e)
     {
@@ -19,16 +19,13 @@ int main(void)
 
     try
     {
-        std::cout << copy->getElement(10) << std::endl;
+        std::cout << copy.getElement(10) << std::endl;
     }
     catch (std::exception & e)
     {
         std::cerr << e.what() << std::endl;
     }
 
-    std::cout << "size of array: " << array->size() << std::endl;
-    std::cout << "size of array1: " << array1->size() << std::endl;
-
-    delete array;
-    delete array1;
+    std::cout << "size of array: " << array.size() << std::endl;
+    std::cout << "size of array1: " << array1.size() << std::endl;
 }
