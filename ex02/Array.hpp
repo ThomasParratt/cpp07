@@ -10,7 +10,7 @@ class Array
     public:
         Array()
         {
-            std::cout << "Defaut contructor called" << std::endl;
+            std::cout << "Defaut constructor called" << std::endl;
             _size = 0;
             _arr = new T[_size];
         }
@@ -53,7 +53,7 @@ class Array
 	        return (*this);
         }
 
-        T& operator[](unsigned int index) const
+        T& operator[](unsigned int index)
         {
             if (index >= _size)
                 throw IndexOutofBoundsException();

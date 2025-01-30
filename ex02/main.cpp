@@ -14,6 +14,7 @@ int main(void)
 
     try
     {
+        array1[1] = 2;
         std::cout << array1[1] << std::endl;
     }
     catch (std::exception & e)
