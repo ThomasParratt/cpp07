@@ -27,7 +27,10 @@ class Array
         Array(const Array& obj)
         {
             std::cout << "Copy constructor called" << std::endl;
-            *this = obj;
+            _size = obj._size;
+            _arr = new T[obj._size];
+            for (unsigned int i = 0; i < obj._size; i++)
+                _arr[i] = T();
         }
 
         ~Array()
