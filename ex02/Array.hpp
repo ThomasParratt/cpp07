@@ -5,41 +5,54 @@ template<typename T>
 class Array
 {
     private:
-        unsigned int    _len = 5;
-        T               _arr[_len];
+        unsigned int    _size;
+        T               *_arr;
     public:
         Array()
         {
-            
+            //does this initialize an empty array?
         }
 
-        Array(unsigned int n)
+        Array(unsigned int n) : _size(n)
         {
-            _len = n;
+            _arr = new T[n];
         }
 
-        Array(const Array& obj)
+        ~Array()
         {
-            _arr = obj._arr;
+            delete[] _arr;
         }
 
-        ~Array() {}
+        // Array(const Array& obj)
+        // {
+        //     _arr = obj._arr;
+        // }
 
-        Array& operator=(const Array& obj)
+        // Array& operator=(const Array& obj)
+        // {
+        //     if (this != &obj)
+        //         _arr = obj._arr;
+        //     return (*this);
+        // }
+
+        unsigned int size() const
         {
-            if (this != &obj)
-                _arr = obj._arr;
-            return (*this);
+            return (_size);
         }
 
-
-        unsigned int size()
+        T   getElement(unsigned int index) const
         {
-            return (_len);
+            if (index >= _size)
+                throw IndexOutofBounds();
+            return (_arr[index]);
         }
 
-        T   getElement(unsigned int i)
+        class IndexOutofBounds : public std::exception
         {
-            return (_arr[i]);
-        }
+            public:
+                const char* what() const noexcept override
+                {
+                    return ("Index out of bounds");
+                }
+        };
 };
