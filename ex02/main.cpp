@@ -26,7 +26,7 @@ int main(void)
 
     try
     {
-        arr[arr.size()] = 42;
+        arr[arr.size()] = 42; //out of bounds
     }
     catch(const std::exception& e)
     {
