@@ -12,7 +12,7 @@ class Array
         {
             std::cout << "Defaut constructor called" << std::endl;
             _size = 0;
-            _arr = new T[_size];
+            _arr = nullptr;
         }
 
         Array(unsigned int n)
@@ -30,7 +30,7 @@ class Array
             _size = obj._size;
             _arr = new T[obj._size];
             for (unsigned int i = 0; i < obj._size; i++)
-                _arr[i] = T();
+                _arr[i] = obj._arr[i];
         }
 
         ~Array()
@@ -53,6 +53,15 @@ class Array
 	        return (*this);
         }
 
+        class IndexOutofBoundsException : public std::exception
+        {
+            public:
+                const char* what() const noexcept override
+                {
+                    return ("Index out of bounds");
+                }
+        };
+
         T& operator[](unsigned int index) const
         {
             if (index >= _size)
@@ -64,15 +73,6 @@ class Array
         {
             return (_size);
         }
-
-        class IndexOutofBoundsException : public std::exception
-        {
-            public:
-                const char* what() const noexcept override
-                {
-                    return ("Index out of bounds");
-                }
-        };
 };
 
 template<typename T>
