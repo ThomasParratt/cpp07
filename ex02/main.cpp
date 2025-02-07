@@ -13,14 +13,28 @@ int main(void)
     //Construction by copy
     Array<int> arr2(arr1);
     std::cout << "arr2: " << arr2 << std::endl;
-    arr2[1] = 42;
+    try
+    {
+        arr2[1] = 42;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     std::cout << "arr2: " << arr2 << std::endl;
     std::cout << "arr1: " << arr1 << std::endl;
 
     //Assignment operator
     arr = arr1;
     std::cout << "arr: " << arr << std::endl;
-    arr[0] = 42;
+    try
+    {
+        arr[0] = 42;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     std::cout << "arr: " << arr << std::endl;
     std::cout << "arr1: " << arr1 << std::endl;
 
