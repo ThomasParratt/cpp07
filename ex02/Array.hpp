@@ -53,19 +53,10 @@ class Array
 	        return (*this);
         }
 
-        class IndexOutofBoundsException : public std::exception
-        {
-            public:
-                const char* what() const noexcept override
-                {
-                    return ("Index out of bounds");
-                }
-        };
-
         T& operator[](unsigned int index) const
         {
             if (index >= _size)
-                throw IndexOutofBoundsException();
+                throw std::runtime_error("Index out of bounds");
             return (_arr[index]);
         }
 
