@@ -19,7 +19,7 @@ int main(void)
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     }
     std::cout << "arr2: " << arr2 << std::endl;
     std::cout << "arr1: " << arr1 << std::endl;
@@ -33,7 +33,7 @@ int main(void)
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     }
     std::cout << "arr: " << arr << std::endl;
     std::cout << "arr1: " << arr1 << std::endl;
